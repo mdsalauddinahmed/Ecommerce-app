@@ -6,6 +6,8 @@ import Policy from "./Pages/Policy"
 import Pagenotfound from "./Pages/pagenotfound"
 import Register from "./Pages/Auth/Register"
 import Login from "./Pages/Auth/Login"
+import Category from "./Pages/Categories/Category"
+import Cart from "./Pages/AddToCart/Cart"
 
  
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" element={<HomePages></HomePages>}></Route>
           <Route path="/about" element={<About></About>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/category" element={<Category></Category>}></Route>
+          <Route path="/cart" element={<Cart></Cart>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="/policy" element={<Policy></Policy>}></Route>

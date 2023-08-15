@@ -1,14 +1,13 @@
 import React from 'react';
 import Layout from '../../Componenets/Layouts/Layout';
 
-const Login = () => {
+const Category = () => {
     return (
-        <Layout title={"Sign In-ecommerce app"}>
-
-            <h2>Login page</h2>
+        <Layout title={"Categories-Ecommerce app"}>
+            <h3>Ecommerce app</h3>
             
         </Layout>
     );
 }
 
-export default Login;
+export default Category;
