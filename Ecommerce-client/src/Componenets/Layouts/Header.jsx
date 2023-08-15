@@ -1,30 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
+import {AiFillShopping} from 'react-icons/ai'
+ 
 const Header = () => {
     return (
         <>
  
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Hidden brand</a>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <Link to="/" className="navbar-brand" >
+        <AiFillShopping></AiFillShopping>Ecommerce-App</Link>
+      <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
-      <NavLink className="nav-link active" aria-current="page" href="#">Home</NavLink>
+      <NavLink to="/" className="nav-link " >Home</NavLink>
+    </li>
+      <li className="nav-item">
+      <NavLink to="/category" className="nav-link " >Category</NavLink>
     </li>
     <li className="nav-item">
-      <NavLink to="/register" className="nav-link" href="#">Register</NavLink>
+      <NavLink to="/register" className="nav-link">Register</NavLink>
     </li>
     <li className="nav-item">
-      <NavLink to="/login" className="nav-link" href="#">Login</NavLink>
+      <NavLink to="/login" className="nav-link">Login</NavLink>
     </li>
     <li className="nav-item">
-      <NavLink to="/cart" className="nav-link" href="#">cart(0)</NavLink>
+      <NavLink to="/cart" className="nav-link"  >cart(0)</NavLink>
     </li>
       </ul>
        

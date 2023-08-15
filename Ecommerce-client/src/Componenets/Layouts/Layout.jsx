@@ -7,7 +7,7 @@ const Layout = (porps) => {
         <div>
             <Header></Header>
             
-            <main style={{minHeight:"80vh"}}>
+            <main style={{minHeight:"70vh"}}>
             {porps.children}
             </main>
             <Footer></Footer>
