@@ -8,6 +8,8 @@ import Register from "./Pages/Auth/Register"
 import Login from "./Pages/Auth/Login"
 import Category from "./Pages/Categories/Category"
 import Cart from "./Pages/AddToCart/Cart"
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
  
 
