@@ -32,7 +32,7 @@ import JWT from "jsonwebtoken";
     const hashedPassword= await hasPassword(password)
     
     // save
-    const user= await new userModels({name,email,phone,address,password:hashedPassword}).save();
+    const user= await new userModels({name,email,phone,address,password:hashedPassword,_id}).save();
     res.status(201).send({
       success:true,
       message:"User Register successfully",
@@ -90,10 +90,12 @@ export const  loginController =async(req,res)=>{
       success:true,
       message:"login successfully",
       user:{
+        _id: user._id,
         name:user.name,
         email:user.email,
         phone:user.phone,
         address:user.address,
+         
       },
       token,
     })

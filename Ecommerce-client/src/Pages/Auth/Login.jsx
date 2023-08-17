@@ -4,13 +4,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../../src/styles/AuthStyles.css'
 import { useState } from 'react';
+import { useAuth } from '../../Context/Auth';
 
 const Login = () => {
-    const [name,setName]=useState("");
+    
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [phone,setPhone]=useState("");
-    const [address,setAddress]=useState("");
+    const [auth,setAuth]=useAuth()
     const navigate = useNavigate();
 
   //  form function
@@ -21,7 +21,13 @@ const Login = () => {
          email,password 
       });
       if(res && res.data.success){
-        toast.success(res.data && res.data.message)
+        toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user:res.data.user,
+          token:res.data.token,
+        });
+        localStorage.setItem("auth",JSON.stringify(res.data));
         navigate('/')
       }else{
         toast.error(res.data.message)

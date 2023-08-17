@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {AiFillShopping} from 'react-icons/ai'
+import { useAuth } from '../../Context/Auth';
+import { toast } from 'react-hot-toast';
  
 const Header = () => {
+  const [auth,setAuth]=useAuth()
+  const handleLogout =()=>{
+    setAuth({
+      ...auth,user:null,token:"",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout successfully");
+  }
     return (
         <>
  
@@ -22,12 +32,24 @@ const Header = () => {
       <li className="nav-item">
       <NavLink to="/category" className="nav-link " >Category</NavLink>
     </li>
-    <li className="nav-item">
+    {
+      !auth.user?(<>
+      
+      <li className="nav-item">
       <NavLink to="/register" className="nav-link">Register</NavLink>
     </li>
     <li className="nav-item">
       <NavLink to="/login" className="nav-link">Login</NavLink>
     </li>
+      
+      </>):(
+        <>
+       <li className="nav-item">
+      <NavLink onClick={handleLogout} to="/login" className="nav-link">Logout</NavLink>
+    </li>
+        </>
+      )
+    }
     <li className="nav-item">
       <NavLink to="/cart" className="nav-link"  >cart(0)</NavLink>
     </li>
