@@ -1,28 +1,47 @@
 import React, { useState } from 'react';
 import Layout from '../../Componenets/Layouts/Layout';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import '../../../src/styles/AuthStyles.css'
 
 const Register = () => {
 
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
-    const [pass,setPassword]=useState("");
+    const [password,setPassword]=useState("");
     const [phone,setPhone]=useState("");
     const [address,setAddress]=useState("");
+    const navigate = useNavigate();
 
   //  form function
-  const handleSubmint =(e)=>{
+  const handleSubmint = async(e)=>{
     e.preventDefault();
-    console.log(email,name,pass,address,phone);
-    toast.success("Register Succssfully");
+     try{
+      const res = await axios.post('http://localhost:8080/api/vi/auth/register',{
+        name,email,password,phone,address
+      });
+      if(res && res.data.success){
+        toast.success(res.data && res.data.message)
+        navigate('/login')
+      }else{
+        toast.error(res.data.message)
+      }
+     }catch(error){
+       console.log(error);
+       toast.error("something went wrong")
+
+     }
   }
+  // console.log(process.env.React_App_api)
     return (
         <Layout title={"Register now -Eccomerce app"}>
-            <div className="register">
-            <h2>Register Now</h2>
+            <div className="form-container">
+           
 
            
     <form onSubmit={handleSubmint}>
+    <h2 className='title'>Register Now</h2>
   <div className="mb-3">
     
     <input
@@ -52,7 +71,7 @@ const Register = () => {
     
     <input
      type="password"
-     value={pass}
+     value={password}
      onChange={(e)=>setPassword(e.target.value)}
      className="form-control"
      required
