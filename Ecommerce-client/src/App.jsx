@@ -11,6 +11,7 @@ import Cart from "./Pages/AddToCart/Cart"
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from "./Pages/user/Dashboard"
+import { PrivateRoute } from "./Componenets/Routes/Private"
 
  
 
@@ -22,7 +23,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePages></HomePages>}></Route>
           <Route path="/about" element={<About></About>}></Route>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+          <Route path="/dashboard" element={<PrivateRoute></PrivateRoute>}>
+          <Route path="" element={<Dashboard></Dashboard>}></Route>
+          </Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/category" element={<Category></Category>}></Route>
           <Route path="/cart" element={<Cart></Cart>}></Route>

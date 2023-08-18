@@ -1,7 +1,7 @@
  import Layout from '../../Componenets/Layouts/Layout';
  import toast from 'react-hot-toast';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../../../src/styles/AuthStyles.css'
 import { useState } from 'react';
 import { useAuth } from '../../Context/Auth';
@@ -12,6 +12,7 @@ const Login = () => {
     const [password,setPassword]=useState("");
     const [auth,setAuth]=useAuth()
     const navigate = useNavigate();
+    const location = useLocation();
 
   //  form function
   const handleSubmint = async(e)=>{
@@ -28,7 +29,7 @@ const Login = () => {
           token:res.data.token,
         });
         localStorage.setItem("auth",JSON.stringify(res.data));
-        navigate('/')
+        navigate(location.state || '/')
       }else{
         toast.error(res.data.message)
         console.log(res.data.message)
