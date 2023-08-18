@@ -1,5 +1,5 @@
 import express from 'express'
-import {loginController, registerController, testController} from '../controllers/authController.js'
+import {forgotPasswordController, loginController, registerController, testController} from '../controllers/authController.js'
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
 
 // router object
@@ -19,6 +19,11 @@ router.post('/login',loginController);
 
 router.get("/test",requireSignIn,isAdmin, testController);
 
+
+
+// forgotPasswordRoutes
+
+router.post('/forgot-password',forgotPasswordController);
 
 // Private Routes
 
