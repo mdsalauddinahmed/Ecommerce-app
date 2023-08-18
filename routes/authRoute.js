@@ -25,9 +25,14 @@ router.get("/test",requireSignIn,isAdmin, testController);
 
 router.post('/forgot-password',forgotPasswordController);
 
-// Private Routes
+// Private user Routes
 
 router.get("/user-auth",requireSignIn,(req,res) =>{
+    res.status(200).send({ok:true});
+})
+// Private  admin  Routes
+
+router.get("/admin-auth",requireSignIn,isAdmin,(req,res) =>{
     res.status(200).send({ok:true});
 })
 

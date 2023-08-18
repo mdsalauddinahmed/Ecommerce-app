@@ -107,3 +107,41 @@ font-family: 'Poppins', sans-serif; */
   height: 70vh;
   flex-direction: column;
 }
+
+/* Add some basic styling to the dropdown button */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown-content  span {
+  color: black;
+  padding: 5px  5px 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content  li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when the dropdown button is hovered on */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
