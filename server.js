@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import connectDb from './config/db.js';
 import authRouter from './routes/authRoute.js'
 import CategoryRoutes from'./routes/CategoryRoutes.js'
+import productRoute from './routes/productRoute.js'
 import cors from 'cors'
 
 // config
@@ -30,6 +31,7 @@ app.use(morgan('dev'))
 // routes
 app.use('/api/vi/auth',authRouter)
 app.use('/api/vi/category',CategoryRoutes)
+app.use('/api/vi/product',productRoute)
 // rest api
 
 
