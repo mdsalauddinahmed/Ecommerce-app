@@ -5,6 +5,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter} from "react-router-dom";
  import { AuthProvider } from './Context/Auth.jsx';
+ import "antd/dist/reset.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
